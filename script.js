@@ -87,12 +87,33 @@ document.addEventListener('DOMContentLoaded', function() {
     const registerBtn = document.querySelector('.register-btn');
     
     loginBtn.addEventListener('click', function() {
-        alert('登录功能开发中...');
+        openModal('loginModal');
     });
     
     registerBtn.addEventListener('click', function() {
-        alert('注册功能开发中...');
+        openModal('registerModal');
     });
+
+    // 注册表单提交事件
+    const registerForm = document.getElementById('registerForm');
+    registerForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        handleRegister();
+    });
+
+    // 登录表单提交事件
+    const loginForm = document.getElementById('loginForm');
+    loginForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        handleLogin();
+    });
+
+    // 点击模态框外部关闭
+    window.onclick = function(event) {
+        if (event.target.classList.contains('modal')) {
+            event.target.style.display = 'none';
+        }
+    };
 
     // 立即体验按钮点击事件
     const playBtn = document.querySelector('.play-btn');
@@ -149,3 +170,125 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+// 打开模态框
+function openModal(modalId) {
+    const modal = document.getElementById(modalId);
+    modal.style.display = 'block';
+}
+
+// 关闭模态框
+function closeModal(modalId) {
+    const modal = document.getElementById(modalId);
+    modal.style.display = 'none';
+}
+
+// 验证输入是否只包含数字或字母
+function validateAlphanumeric(input) {
+    const regex = /^[a-zA-Z0-9]+$/;
+    return regex.test(input);
+}
+
+// 检查账号是否已存在
+function isUsernameExists(username) {
+    const users = JSON.parse(localStorage.getItem('users') || '[]');
+    return users.some(user => user.username === username);
+}
+
+// 处理注册
+function handleRegister() {
+    const username = document.getElementById('registerUsername').value.trim();
+    const password = document.getElementById('registerPassword').value;
+    const confirmPassword = document.getElementById('confirmPassword').value;
+
+    // 验证账号格式
+    if (!validateAlphanumeric(username)) {
+        alert('账号只能包含数字或字母！');
+        return;
+    }
+
+    // 验证密码格式
+    if (!validateAlphanumeric(password)) {
+        alert('密码只能包含数字或字母！');
+        return;
+    }
+
+    // 验证密码长度
+    if (password.length < 6) {
+        alert('密码长度至少为6位！');
+        return;
+    }
+
+    // 验证确认密码
+    if (password !== confirmPassword) {
+        alert('两次输入的密码不一致！');
+        return;
+    }
+
+    // 检查账号是否已存在
+    if (isUsernameExists(username)) {
+        alert('该账号已注册！');
+        return;
+    }
+
+    // 保存用户信息
+    const users = JSON.parse(localStorage.getItem('users') || '[]');
+    users.push({
+        username: username,
+        password: password
+    });
+    localStorage.setItem('users', JSON.stringify(users));
+
+    alert('注册成功！');
+    closeModal('registerModal');
+    
+    // 清空表单
+    document.getElementById('registerForm').reset();
+}
+
+// 处理登录
+function handleLogin() {
+    const username = document.getElementById('loginUsername').value.trim();
+    const password = document.getElementById('loginPassword').value;
+
+    // 获取所有用户
+    const users = JSON.parse(localStorage.getItem('users') || '[]');
+
+    // 查找匹配的用户
+    const user = users.find(u => u.username === username && u.password === password);
+
+    if (user) {
+        alert('登录成功！');
+        closeModal('loginModal');
+        
+        // 更新UI显示已登录状态
+        const loginBtn = document.querySelector('.login-btn');
+        const registerBtn = document.querySelector('.register-btn');
+        loginBtn.textContent = username;
+        registerBtn.textContent = '退出';
+        registerBtn.onclick = function() {
+            handleLogout();
+        };
+        
+        // 清空表单
+        document.getElementById('loginForm').reset();
+    } else {
+        alert('账号或密码错误！');
+    }
+}
+
+// 处理退出登录
+function handleLogout() {
+    if (confirm('确定要退出登录吗？')) {
+        const loginBtn = document.querySelector('.login-btn');
+        const registerBtn = document.querySelector('.register-btn');
+        loginBtn.textContent = '登录';
+        registerBtn.textContent = '注册';
+        
+        // 恢复注册按钮的点击事件
+        registerBtn.onclick = null;
+        registerBtn.addEventListener('click', function() {
+            openModal('registerModal');
+        });
+    }
+}
