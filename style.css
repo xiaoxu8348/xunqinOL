@@ -1,0 +1,611 @@
+/* 全局样式 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f0e7e7; 
+    color: #070707;
+    line-height: 3.0;
+}
+
+/* 导航栏 */
+header {
+    background-color: #1a1a2e;
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.logo h1 {
+    font-size: 1.8rem;
+    color: #ffd700;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin: 0 1rem;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: #ffd700;
+}
+
+.user-controls {
+    display: flex;
+    gap: 1rem;
+}
+
+.login-btn, .register-btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.login-btn {
+    background-color: transparent;
+    color: white;
+    border: 1px solid white;
+}
+
+.register-btn {
+    background-color: #ffd700;
+    color: #1a1a2e;
+    font-weight: bold;
+}
+
+.login-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.register-btn:hover {
+    background-color: #ffed4e;
+    transform: translateY(-2px);
+}
+
+/* 英雄区域 */
+.hero {
+    background: url('https://s41.ax1x.com/2026/02/01/pZ4PSOJ.jpg') center/cover no-repeat;
+    color: white;
+    padding: 4rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.hero-content {
+    flex: 1;
+    padding-right: 2rem;
+}
+
+.hero-content h2 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: #ffd700;
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+}
+
+.hero-content p {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.play-btn, .download-btn {
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-right: 1rem;
+    transition: all 0.3s ease;
+}
+
+.play-btn {
+    background-color: #ffd700;
+    color: #1a1a2e;
+}
+
+.download-btn {
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.play-btn:hover {
+    background-color: #ffed4e;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
+}
+
+.download-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-3px);
+}
+
+.hero-image {
+    flex: 1;
+    text-align: right;
+}
+
+.hero-image img {
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* 游戏介绍 */
+.game-intro {
+    padding: 4rem 2rem;
+    background-color: white;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.game-intro h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #1a1a2e;
+}
+
+.intro-content {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+
+.intro-text {
+    flex: 1;
+}
+
+.intro-text p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+}
+
+.intro-text ul {
+    list-style: none;
+}
+
+.intro-text li {
+    margin-bottom: 0.8rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.intro-text li:before {
+    content: '✨';
+    position: absolute;
+    left: 0;
+    color: #ffd700;
+}
+
+.intro-image {
+    flex: 1;
+}
+
+.intro-image img {
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* 角色宠物 */
+.characters {
+    padding: 4rem 2rem;
+    background-color: #f9f9f9;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.characters h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #1a1a2e;
+}
+
+.pets-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.pet-card {
+    background-color: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.pet-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.pet-card img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.pet-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+    color: #1a1a2e;
+}
+
+.pet-card p {
+    color: #666;
+}
+
+/* 游戏下载 */
+.download-section {
+    padding: 4rem 2rem;
+    background-color: #1a1a2e;
+    color: white;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.download-section h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #ffd700;
+}
+
+.download-platforms {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.platform-card {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.platform-card:hover {
+    background-color: rgba(255, 255, 255, 0.15);
+    transform: translateY(-5px);
+}
+
+.platform-card img {
+    max-width: 80px;
+    margin-bottom: 1.5rem;
+}
+
+.platform-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+}
+
+.platform-card .download-btn {
+    padding: 0.8rem 1.5rem;
+    background-color: #ffd700;
+    color: #1a1a2e;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.platform-card .download-btn:hover {
+    background-color: #ffed4e;
+    transform: translateY(-2px);
+}
+
+/* 最新动态 */
+.news-section {
+    padding: 4rem 2rem;
+    background-color: white;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.news-section h2 {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    color: #1a1a2e;
+}
+
+.news-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.news-card {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.news-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.news-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.news-card h3 {
+    font-size: 1.2rem;
+    margin: 1rem;
+    color: #1a1a2e;
+}
+
+.news-card p {
+    margin: 0 1rem 1rem;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.news-card span {
+    display: block;
+    margin: 0 1rem 1rem;
+    color: #999;
+    font-size: 0.8rem;
+}
+
+/* 页脚 */
+footer {
+    background-color: #1a1a2e;
+    color: white;
+    padding: 3rem 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+}
+
+.footer-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    color: #ffd700;
+}
+
+.footer-info p {
+    margin-bottom: 0.5rem;
+    opacity: 0.8;
+}
+
+.footer-links h4,
+.footer-contact h4 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: #ffd700;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+    color: white;
+    text-decoration: none;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.footer-links a:hover {
+    opacity: 1;
+    color: #ffd700;
+}
+
+.footer-contact p {
+    margin-bottom: 0.5rem;
+    opacity: 0.8;
+}
+
+/* 管理系统 */
+.image-management,
+.download-management {
+    padding: 2rem;
+    background-color: #f9f9f9;
+    margin: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.image-management h2,
+.download-management h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    color: #1a1a2e;
+}
+
+.image-controls,
+.download-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.control-group {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.control-group label {
+    width: 150px;
+    font-weight: bold;
+}
+
+.control-group input {
+    flex: 1;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.control-group button {
+    padding: 0.5rem 1rem;
+    background-color: #1a1a2e;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.control-group button:hover {
+    background-color: #ffd700;
+    color: #1a1a2e;
+}
+
+/* 管理按钮 */
+.admin-controls {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    z-index: 999;
+}
+
+.admin-controls button {
+    padding: 1rem;
+    background-color: #ffd700;
+    color: #1a1a2e;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.admin-controls button:hover {
+    background-color: #ffed4e;
+    transform: scale(1.1);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    .nav-links {
+        margin: 1rem 0;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero {
+        flex-direction: column;
+        text-align: center;
+        padding: 2rem 1rem;
+    }
+
+    .hero-content {
+        padding-right: 0;
+        margin-bottom: 2rem;
+    }
+
+    .intro-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .intro-text ul {
+        text-align: left;
+    }
+
+    .control-group {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .control-group label {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+
+    .admin-controls {
+        bottom: 1rem;
+        right: 1rem;
+    }
+
+    .admin-controls button {
+        padding: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-content h2 {
+        font-size: 2rem;
+    }
+
+    .play-btn, .download-btn {
+        display: block;
+        width: 100%;
+        margin: 0.5rem 0;
+    }
+
+    .game-intro h2,
+    .characters h2,
+    .download-section h2,
+    .news-section h2 {
+        font-size: 2rem;
+    }
+}
