@@ -33,7 +33,7 @@
     <section id="home" class="hero">
         <div class="hero-content">
             <h2>欢迎来到寻秦OL</h2>
-            <p>踏上奇幻冒险之旅，收集可爱宠物，探索神秘世界</p>
+            <p>踏上传奇之旅，收集可爱宠物，探索神秘世界</p>
             <button class="play-btn">立即体验</button>
             <button class="download-btn">下载游戏</button>
         </div>
@@ -45,10 +45,10 @@
         <h2>游戏介绍</h2>
         <div class="intro-content">
             <div class="intro-text">
-                <p>魔法王国是一款充满奇幻色彩的在线游戏，玩家将扮演一名小魔法师，在这个充满魔法的世界中冒险探索。</p>
+                <p>寻秦OL是一款充满奇幻色彩的在线游戏，玩家将扮演一名小魔法师，在这个充满魔法的世界中冒险探索。</p>
                 <p>游戏特色：</p>
                 <ul>
-                    <li>收集超过1000种可爱宠物</li>
+                    <li>收集超可爱宠物</li>
                     <li>探索广阔的魔法世界</li>
                     <li>参与刺激的宠物对战</li>
                     <li>结交新朋友，组建公会</li>
@@ -73,7 +73,7 @@
             <div class="pet-card">
                 <img src="https://s41.ax1x.com/2026/02/01/pZ4P3ff.jpg" alt="九天玄女">
                 <h3>九天玄女</h3>
-                <p>水系宠物，擅长水属性魔法</p>
+                <p>群攻宠物，擅长群攻魔法</p>
             </div>
             <div class="pet-card">
                 <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=cute%20magical%20wind%20hawk%20pet%2C%20cartoon%20style%2C%20bright%20colors&image_size=square" alt="风鹰">
@@ -200,9 +200,9 @@
     <footer>
         <div class="footer-content">
             <div class="footer-info">
-                <h3>魔法王国</h3>
-                <p>© 2026 魔法王国 版权所有</p>
-                <p>适龄提示：适合8岁以上用户</p>
+                <h3>寻秦OL</h3>
+                <p>© 2026 寻秦OL 版权所有</p>
+                <p>适龄提示：适合16岁以上用户</p>
             </div>
             <div class="footer-links">
                 <h4>快速链接</h4>
@@ -216,9 +216,8 @@
             </div>
             <div class="footer-contact">
                 <h4>联系我们</h4>
-                <p>客服电话：400-123-4567</p>
-                <p>邮箱：support@magic王国.com</p>
-                <p>官方微信：魔法王国</p>
+                <p>邮箱：3286057317@qq.com</p>
+                <p>官方微信：寻秦OL</p>
             </div>
         </div>
     </footer>
@@ -227,6 +226,48 @@
     <div class="admin-controls">
         <button onclick="toggleImageManagement()">管理图片</button>
         <button onclick="toggleDownloadManagement()">管理下载</button>
+    </div>
+
+    <!-- 登录模态框 -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('loginModal')">&times;</span>
+            <h2>登录</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginUsername">账号</label>
+                    <input type="text" id="loginUsername" placeholder="请输入账号" required>
+                </div>
+                <div class="form-group">
+                    <label for="loginPassword">密码</label>
+                    <input type="password" id="loginPassword" placeholder="请输入密码" required>
+                </div>
+                <button type="submit" class="submit-btn">登录</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- 注册模态框 -->
+    <div class="modal" id="registerModal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('registerModal')">&times;</span>
+            <h2>注册</h2>
+            <form id="registerForm">
+                <div class="form-group">
+                    <label for="registerUsername">账号</label>
+                    <input type="text" id="registerUsername" placeholder="请输入账号（仅限数字或字母）" required>
+                </div>
+                <div class="form-group">
+                    <label for="registerPassword">密码</label>
+                    <input type="password" id="registerPassword" placeholder="请输入密码（仅限数字或字母）" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirmPassword">确认密码</label>
+                    <input type="password" id="confirmPassword" placeholder="请再次输入密码" required>
+                </div>
+                <button type="submit" class="submit-btn">注册</button>
+            </form>
+        </div>
     </div>
 
     <script src="script.js"></script>
